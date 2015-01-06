@@ -1,0 +1,23 @@
+{
+  "name": "hobbo",
+  "version": "0.0.0",
+  "description": "general server tool for nomad server",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saloparenator/hobbo.git"
+  },
+  "keywords": [
+    "websocket",
+    "restfull"
+  ],
+  "author": "Martin Robinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saloparenator/hobbo/issues"
+  },
+  "homepage": "https://github.com/saloparenator/hobbo"
+}
