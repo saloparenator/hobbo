@@ -1,5 +1,5 @@
-var port = process.env.PORT || 8080;
-var url = process.env.IP || '0.0.0.0';
+var port = process.env.PORT;
+var url = process.env.IP;
 
 var http = require('http');
 
