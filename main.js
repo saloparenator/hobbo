@@ -11,4 +11,4 @@ var server = http.createServer(function(req, res) {
 })
 
 server.listen(port, url);
-console.log("NodeJS web server running on 0.0.0.0:80");
+console.log("NodeJS web server running on "+url+':'+port);
