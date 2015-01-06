@@ -7,5 +7,5 @@ var server = http.createServer(function(req, res) {
   console.log('method:'+req.method);
 })
 
-server.listen(80, '0.0.0.0');
+server.listen(8080, '0.0.0.0');
 console.log("NodeJS web server running on 0.0.0.0:80");

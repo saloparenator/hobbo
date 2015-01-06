@@ -1,3 +1,6 @@
+var port = process.env.PORT || 8080;
+var url = process.env.IP || '0.0.0.0';
+
 var http = require('http');
 
 var server = http.createServer(function(req, res) {
@@ -7,5 +10,5 @@ var server = http.createServer(function(req, res) {
   console.log('method:'+req.method);
 })
 
-server.listen(80, '0.0.0.0');
+server.listen(port, url);
 console.log("NodeJS web server running on 0.0.0.0:80");
