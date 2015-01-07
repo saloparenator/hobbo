@@ -4,16 +4,21 @@ var port = process.env.PORT || 8080;
 
 console.log("B==D")
 
-var http = require("http");
 var express = require("express");
 var expressws = require("express-ws");
 
 var app = expressws(express());
 
-app.use(express.static(__dirname + "/"));
-app.get('/', function(req, res){
-  res.send('hello world');
-  console.log('get');
+
+app.use(function (req, res, next) {
+  console.log('middleware');
+  req.testing = 'testing';
+  return next();
+});
+
+app.get('/', function(req, res, next){
+  console.log('get route', req.testing);
+  res.end();
 });
 
 app.ws('/', function(ws, req) {
@@ -23,6 +28,5 @@ app.ws('/', function(ws, req) {
   console.log('socket', req.testing);
 });
 
-var server = http.createServer(app);
-server.listen(port);;
+app.listen(port);;
 console.log("http server listening on %d", port);
