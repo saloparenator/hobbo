@@ -1,16 +1,28 @@
+
 var port = process.env.PORT || 8080;
-var url = process.env.IP || '0.0.0.0';
+//var url = process.env.IP || '0.0.0.0';
 
 console.log("B==D")
 
-var http = require('http');
+var http = require("http");
+var express = require("express");
+var expressws = require("express-ws");
 
-var server = http.createServer(function(req, res) {
-  res.end('Hello from NodeJS!\n');
-  console.log('Someone visited our web server!');
-  console.log('path:'+req.url);
-  console.log('method:'+req.method);
-})
+var app = expressws(express());
 
-server.listen(port, url);
-console.log("NodeJS web server running on "+url+':'+port);
+app.use(express.static(__dirname + "/"));
+app.get('/', function(req, res){
+  res.send('hello world');
+  console.log('get');
+});
+
+app.ws('/', function(ws, req) {
+  ws.on('message', function(msg) {
+    console.log(msg);
+  });
+  console.log('socket', req.testing);
+});
+
+var server = http.createServer(app);
+server.listen(port);;
+console.log("http server listening on %d", port);

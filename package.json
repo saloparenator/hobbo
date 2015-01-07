@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "express": "^4.4.5",
-    "ws": "0.4.x"
+    "ws": "0.4.x",
+    "express-ws":"0.2.3"
   },
   "author": "Martin Robinson",
   "license": "BSD",
