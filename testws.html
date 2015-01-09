@@ -1,33 +1,12 @@
 <html>
     <body>
 <script>
-  if ("WebSocket" in window)
-  {
-     console.log("WebSocket is supported by your Browser!");
-     // Let us open a web socket
-     var ws = new WebSocket("ws://hobbo-saloparenator.c9.io");
-     ws.onopen = function()
-     {
-        // Web Socket is connected, send data using send()
-        ws.send("Message to send");
-        console.log("Message is sent...");
-     };
-     ws.onmessage = function (evt) 
-     { 
-        var received_msg = evt.data;
-        console.log("Message is received...");
-     };
-     ws.onclose = function()
-     { 
-        // websocket is closed.
-        alert("Connection is closed..."); 
-     };
-  }
-  else
-  {
-     // The browser doesn't support WebSocket
-     console.log("WebSocket NOT supported by your Browser!");
-  }
+var host = location.origin.replace(/^http/, 'ws')
+var ws = new WebSocket(host);
+ws.onmessage = function (event) {
+  var data = JSON.parse(event.data);
+  console.log(data);
+};
 </script>
     </body>
 </html>
