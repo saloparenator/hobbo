@@ -1,0 +1,11 @@
+<html>
+    <body>
+<script src="connect.js"></script>
+<script>
+    var ws = connect('testws',function(data){console.log('ws'+data)});
+    console.log(get('testws',function(data){console.log('get'+data)}));
+    console.log('let post B==D');
+    post('testws','B==D');
+</script>
+    </body>
+</html>
