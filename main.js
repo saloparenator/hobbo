@@ -114,6 +114,8 @@ wss.on("connection", function(ws) {
    * on connection close, remove peer
    */
   ws.on("close", function() {
-    delete peer[url];
+    var toRemove = peer[url].indexOf(ws);
+    if (toRemove!=-1)
+      peer[url].splice(toRemove,1);
   })
 })
