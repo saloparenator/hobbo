@@ -104,9 +104,7 @@ wss.on("connection", function(ws) {
   ws.on('message', function(data, flags) {
     for (var i in peer[url]){
       var p = peer[url][i];
-      if (p!==ws){
-        p.send(data);
-      }
+      p.send(data);
     }
   });
 
