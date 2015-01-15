@@ -3,6 +3,7 @@ var peer = {};
 var WebSocketServer = require("ws").Server
 var http = require("http")
 var express = require("express")
+var ExpressPeerServer = require('peer').ExpressPeerServer;
 var app = express()
 var port = process.env.PORT || 8080
 
@@ -117,3 +118,8 @@ wss.on("connection", function(ws) {
       peer[url].splice(toRemove,1);
   })
 })
+
+app.use(ExpressPeerServer(server));
+server.on('connection', function(id) { console.log("connect : "+id) });
+server.on('disconnect', function(id) { console.log("disconnect : "+id) });
+server.listen(port);
